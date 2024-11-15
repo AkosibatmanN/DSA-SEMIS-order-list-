@@ -10,11 +10,9 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    // Set models for the QListView widgets
     ui->queueListView->setModel(queueModel);
     ui->stackListView->setModel(stackModel);
 
-    // Connect buttons to slot functions
     connect(ui->enqueueButton, &QPushButton::clicked, this, &MainWindow::enqueueOrder);
     connect(ui->dequeueButton, &QPushButton::clicked, this, &MainWindow::dequeueOrder);
     connect(ui->peekQueueButton, &QPushButton::clicked, this, &MainWindow::peekQueue);
@@ -87,7 +85,7 @@ void MainWindow::peekStack() {
     }
 }
 
-// Update methods for QListView
+
 void MainWindow::updateQueueView() {
     QStringList queueList;
     for (const auto &order : orderQueue) {
